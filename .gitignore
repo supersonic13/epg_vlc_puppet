@@ -1,1 +1,2 @@
 .vagrant
+./puppet_tools/modules/epg_vlc/files/source/

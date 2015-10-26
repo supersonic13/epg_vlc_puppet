@@ -61,21 +61,21 @@ class environment {
   package { 'libmpeg2-4-dev': ensure => present, }
   package { 'libmtp-dev': ensure => present, }
   package { 'libncursesw5-dev': ensure => present, }
-  package { 'libnotify-dev': ensure => present, }
+  #package { 'libnotify-dev': ensure => present, }
   package { 'libogg-dev': ensure => present, }
   package { 'liboggkate-dev': ensure => present, }  
   package { 'libpango1.0-dev': ensure => present, }
   package { 'libpng12-dev': ensure => present, }
   package { 'libprojectm-dev': ensure => present, }
-  package { 'libprojectm-qt-dev': ensure => present, }
+  #package { 'libprojectm-qt-dev': ensure => present, }
   package { 'libproxy-dev': ensure => present, }
   package { 'libpulse-dev': ensure => present, }
-  package { 'libqt4-dev': ensure => present, }
+  #package { 'libqt4-dev': ensure => present, }
   package { 'libraw1394-dev': ensure => present, }
-  package { 'librsvg2-dev': ensure => present, }  
+  #package { 'librsvg2-dev': ensure => present, }  
   package { 'libschroedinger-dev': ensure => present, }
-  package { 'libsdl-image1.2-dev': ensure => present, }
-  package { 'libsdl1.2-dev': ensure => present, }
+  #package { 'libsdl-image1.2-dev': ensure => present, }
+  #package { 'libsdl1.2-dev': ensure => present, }
   package { 'libshout3-dev': ensure => present, }
   package { 'libsmbclient-dev': ensure => present, }
   package { 'libspeex-dev': ensure => present, }
@@ -87,7 +87,7 @@ class environment {
   package { 'libgme-dev': ensure => present, }
   package { 'libtheora-dev': ensure => present, }
   package { 'libtwolame-dev': ensure => present, }
-  package { 'libudev-dev': ensure => present, }
+  #package { 'libudev-dev': ensure => present, }
   package { 'libupnp-dev': ensure => present, }
   package { 'libv4l-dev': ensure => present, }  
   package { 'libva-dev': ensure => present, }
@@ -107,10 +107,10 @@ class environment {
 
 #  package { '': ensure => present, }
 
-  exec { 'getVLCBuildDep':
-    command => "apt-get build-dep vlc",
-    path    => ['/usr/local/sbin', '/usr/local/bin', '/usr/bin', '/bin', '/sbin',],
-    user => "root",
-  }
+#  exec { 'getVLCBuildDep':
+#    command => "apt-get build-dep vlc",
+#    path    => ['/usr/local/sbin', '/usr/local/bin', '/usr/bin', '/bin', '/sbin',],
+#    user => "root",
+#  }
     
 }
