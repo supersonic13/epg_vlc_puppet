@@ -14,4 +14,29 @@ class epg_vlc {
     require => Exec["cloneEPGCode"], 
   }
   
+  exec {"bootStrapCode":
+    command => "/vagrant/puppet_tools/modules/epg_vlc/files/source/bootstrap",
+    path    => ['/usr/local/sbin', '/usr/local/bin', '/usr/bin', '/bin', '/sbin',],
+    user => "vagrant",
+    cwd => "/vagrant/puppet_tools/modules/epg_vlc/files/source/",
+    require => Exec["gitPullEPGCode"], 
+  }
+  
+  exec {"configureCode":
+    command => "/vagrant/puppet_tools/modules/epg_vlc/files/source/configure --disable-lua --disable-avcodec --disable-swscale --disable-a52 --enable-debug",
+    path    => ['/usr/local/sbin', '/usr/local/bin', '/usr/bin', '/bin', '/sbin',],
+    user => "vagrant",
+    cwd => "/vagrant/puppet_tools/modules/epg_vlc/files/source/",
+    require => Exec["bootStrapCode"],   
+  }
+  
+  exec {"makeCode":
+    command => "make",
+    path    => ['/usr/local/sbin', '/usr/local/bin', '/usr/bin', '/bin', '/sbin',],
+    user => "vagrant",
+    cwd => "/vagrant/puppet_tools/modules/epg_vlc/files/source/",
+    require => Exec["configureCode"],   
+  }
+  
+  
 }

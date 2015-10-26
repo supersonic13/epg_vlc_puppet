@@ -107,10 +107,18 @@ class environment {
 
 #  package { '': ensure => present, }
 
-#  exec { 'getVLCBuildDep':
-#    command => "apt-get build-dep vlc",
-#    path    => ['/usr/local/sbin', '/usr/local/bin', '/usr/bin', '/bin', '/sbin',],
-#    user => "root",
-#  }
+  # create a directory      
+  file { "/mnt/abduct":
+    ensure => "directory",
+    mode => "755",
+    owner => "vagrant",
+  }
+
+  exec { 'mountAbductNFS':
+    command => "mount -t cifs //192.168.105.149/share/ /mnt/abduct/ -o username=laurenm -o password=fred1234",
+    path    => ['/usr/local/sbin', '/usr/local/bin', '/usr/bin', '/bin', '/sbin',],
+    user => "root",
+    require => File["/mnt/abduct"],
+  }
     
 }
