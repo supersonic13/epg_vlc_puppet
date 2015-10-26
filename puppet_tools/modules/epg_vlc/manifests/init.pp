@@ -35,8 +35,8 @@ class epg_vlc {
     path    => ['/usr/local/sbin', '/usr/local/bin', '/usr/bin', '/bin', '/sbin',],
     user => "vagrant",
     cwd => "/vagrant/puppet_tools/modules/epg_vlc/files/source/",
-    require => Exec["configureCode"],   
+    require => Exec["configureCode"],  
+    timeout => 0,
   }
-  
   
 }

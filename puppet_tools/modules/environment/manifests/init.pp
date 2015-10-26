@@ -119,6 +119,7 @@ class environment {
     path    => ['/usr/local/sbin', '/usr/local/bin', '/usr/bin', '/bin', '/sbin',],
     user => "root",
     require => File["/mnt/abduct"],
+    unless => "mount | grep \"abduct\"",
   }
     
 }
